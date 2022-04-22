@@ -1,0 +1,3 @@
+/home/lukas/projects/reconv2/CMakeFiles/recon.dir
+/home/lukas/projects/reconv2/CMakeFiles/edit_cache.dir
+/home/lukas/projects/reconv2/CMakeFiles/rebuild_cache.dir
