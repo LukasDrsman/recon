@@ -46,7 +46,7 @@ namespace re
 					double e1[3], e2[3], m, dist;
 					l.pixelVectorWO(e1, pl[i]);
 					l.pixelVectorCO(e2, pl[i]);
-					m::scale(e2, e2, 2.0, 3);					// slow
+					m::scale(e2, 2.0, 3);						// slow
 					m::add(e2, l.O, 3);							// slow
 					r.project(e1, e1);							// ignore e1[2]
 					r.project(e2, e2);							// ignore e2[2]
