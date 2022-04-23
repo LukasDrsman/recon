@@ -20,3 +20,9 @@ image_width image_height sensor_width sensor_height focal_length
 ```
 Values must be expressed in the form `number.number` (e.g `1.0`, `0.04`, `0.0`).  
 Camera configs are parsed using `c::paramload(args...)` defined in `src/conf/paramload.hpp`.
+
+## Features
+- [x] projection from given R^3 vector in world coordinates - `re::Camera.project(args...)`
+- [x] triangulation using 2 R^2 vectors on camera image - `re::Stereo.triangulate(args...)`
+- [ ] epipolar line based point matching (not tested) - `re::Stereo.match(args...)`
+- [ ] interest point search
