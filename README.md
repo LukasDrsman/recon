@@ -23,6 +23,6 @@ Camera configs are parsed using `c::paramload(args...)` defined in `src/conf/par
 
 ## Features
 - [x] projection from given R^3 vector in world coordinates - `re::Camera.project(args...)`
-- [x] triangulation using 2 R^2 vectors on camera image - `re::Stereo.triangulate(args...)`
+- [x] triangulation using two R^2 vectors on camera image - `re::Stereo.triangulate(args...)`
 - [ ] epipolar line based point matching (not tested) - `re::Stereo.match(args...)`
 - [ ] interest point search
