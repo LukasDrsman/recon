@@ -5,7 +5,7 @@
 
 namespace c
 {
-	void paramload(FILE *fp, double *arr, double paramc)
+	void paramload(FILE *fp, double *dest, double paramc)
 	{
 		for (int i = 0; i < paramc; i++)
 		{
@@ -14,7 +14,7 @@ namespace c
 			pos = 1.0;
 			realpos = 1.0;
 			idx = -1;
-			arr[i] = 0.0;
+			dest[i] = 0.0;
 
 			while ((c = fgetc(fp)) != ' ')
 			{
@@ -28,12 +28,12 @@ namespace c
 					continue;
 				}
 
-				arr[i] += pos * (c - 48);
+				dest[i] += pos * (c - 48);
 				pos *= 0.1;
 				idx++;
 			}
 
-			arr[i] *= realpos;
+			dest[i] *= realpos;
 		}
 	}
 }
