@@ -3,6 +3,8 @@
 ## Build
 Requirements: `opencv4`
 ```sh
+git clone https://github.com/LukasDrsman/recon.git
+cd recon
 cmake .
 make
 ```
