@@ -2,6 +2,9 @@
 #define STEREO_H
 
 #include <stdio.h>
+#include <float.h>
+#include <math.h>
+#include "../math/vec.hpp"
 
 namespace re
 {
@@ -32,6 +35,37 @@ namespace re
 				dest[0] = (RP[2] * pu - RP[1] * R + RP[0]) / (l.f[0] - r.f[0] * R);
 				dest[2] = r.O[2] + r.f[0] * (r.O[0] - dest[0]) * pv;
 				dest[1] = (u[1] - l.p[1]) * (dest[2] - l.O[2]) * RP[3] + l.O[1];
+			}
+
+			// dest[i] stores index of pr corresponding to pl[i]
+			void match(int *dest, double **pl, double **pr, int plc, int prc, double tresh)
+			{
+				for (int i = 0; i < plc; i++)
+				{
+					// construct epipolar line
+					double e1[3], e2[3], m, dist;
+					l.pixelVectorWO(e1, pl[i]);
+					l.pixelVectorCO(e2, pl[i]);
+					m::scale(e2, e2, 2.0, 3);					// slow
+					m::add(e2, l.O, 3);							// slow
+					r.project(e1, e1);							// ignore e1[2]
+					r.project(e2, e2);							// ignore e2[2]
+					m = (e2[1] - e1[1]) / (e2[0] - e1[0]);		// slope
+					dist = DBL_MAX;
+
+					// iterate over pr and find the nearest point
+					for (int j = 0; j < prc; j++)
+					{
+						if (dist < tresh) break;					// break when threshold distance reached
+
+						double dy = fabs(pr[j][1] - m * (pr[j][0] - e1[0]) + e1[1]);
+						if (dy < dist)
+						{
+							dist = dy;
+							dest[i] = j;
+						}
+					}
+				}
 			}
 	};
 }
