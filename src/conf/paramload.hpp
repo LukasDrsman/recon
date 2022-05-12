@@ -5,6 +5,7 @@
 
 namespace c
 {
+	// loads parameters from a line of space-separated config and moves the fp carret
 	void paramload(FILE *fp, double *dest, double paramc)
 	{
 		for (int i = 0; i < paramc; i++)

@@ -44,13 +44,20 @@ namespace re
 				{
 					// construct epipolar line
 					double e1[3], e2[3], m, dist;
+
+					// first epipolar point
 					l.pixelVectorWO(e1, pl[i]);
+
+					// second epipolar point
 					l.pixelVectorCO(e2, pl[i]);
-					m::scale(e2, 2.0, 3);						// slow
-					m::add(e2, l.O, 3);							// slow
+					m::scale(e2, 2.0, 3);
+					m::add(e2, l.O, 3);
+					
+					// get projections of e1 and e2 to construct an epipolar line
 					r.project(e1, e1);							// ignore e1[2]
 					r.project(e2, e2);							// ignore e2[2]
 					m = (e2[1] - e1[1]) / (e2[0] - e1[0]);		// slope
+
 					dist = DBL_MAX;
 
 					// iterate over pr and find the nearest point
