@@ -38,7 +38,7 @@ namespace re
 			}
 
 			// construct an R^3 vector to the camera screen from a pixel (from world origin)
-			void pixelVectorWO(double *dest, double *v)
+			void ptovrWO(double *dest, double *v)
 			{
 				for (int i = 0; i < 2; i++)
 					dest[i] = C[i] * (v[i] - p[i]) + O[i];
@@ -46,7 +46,7 @@ namespace re
 			}
 
 			// construct an R^3 vector to the camera screen from a pixel (from camera origin)
-			void pixelVectorCO(double *dest, double *v)
+			void ptovCO(double *dest, double *v)
 			{
 				for (int i = 0; i < 2; i++)
 					dest[i] = C[i] * (v[i] - p[i]);
