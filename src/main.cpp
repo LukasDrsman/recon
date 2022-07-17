@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	re::Camera c2 = re::Camera(argv[2]);
 	re::Stereo st = re::Stereo(c1, c2);
 
-	double v[3] = {30.0, 2.0, 100.0};
+	double v[3] = {30.0, 1.0, 100.0};
 	double p1[2], p2[2], r[3];
 
 	c1.project(p1, v);
