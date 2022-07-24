@@ -9,5 +9,6 @@ cd recon
 ## Features
 - [x] projection from a given R^3 vector in world coordinates - `cameraProject @ reconstruct, camera.h`
 - [x] triangulation using two R^2 vectors on camera image - `stereoTriangulate @ reconstruct, stereo.h`
+- [ ] reconstruction from misaligned cameras
 - [ ] epipolar line based point matching
 - [ ] interest point search
