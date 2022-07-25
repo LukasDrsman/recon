@@ -1,4 +1,3 @@
-BUILD = ../build
 INCLUDE = camera.c stereo.c vec.c paramload.c
 
 # build all targets

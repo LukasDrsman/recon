@@ -8,7 +8,7 @@ cd ..
 ```
 ## Run
 ```sh
-./build/recon [left camera config].cam [right camera config].cam
+$BUILD/recon [left camera config].cam [right camera config].cam
 ```
 
 ## Camera configs
